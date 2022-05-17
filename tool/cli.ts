@@ -32,7 +32,7 @@ const {
   GOOGLE_ANALYTICS_DEBUG,
 } = require("../libs/env");
 const { runMakePopularitiesFile } = require("./popularities");
-const { runOptimizeClientBuild } = require("./optimize-client-build");
+export const { runOptimizeClientBuild } = require("./optimize-client-build");
 const { runBuildRobotsTxt } = require("./build-robots-txt");
 const kumascript = require("../kumascript");
 
