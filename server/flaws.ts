@@ -1,3 +1,5 @@
+import { Doc } from "../client/src/document/types";
+
 const fs = require("fs");
 const path = require("path");
 
@@ -220,7 +222,7 @@ export default (req, res) => {
     })
     .crawl(path.join(BUILD_OUT_ROOT, locale));
   for (const filePath of api.sync()) {
-    const { doc } = JSON.parse(fs.readFileSync(filePath));
+    const { doc } = JSON.parse(fs.readFileSync(filePath)) as { doc: Doc };
 
     // The home page, for example, also uses a `index.json` but it doesn't have
     // flaws, so let's not count it if it doesn't have a `doc` key.

@@ -36,7 +36,7 @@ const { router: translationsRouter } = require("./translations");
 const { staticMiddlewares, originRequestMiddleware } = require("./middlewares");
 const { getRoot } = require("../content/utils");
 
-async function buildDocumentFromURL(url) {
+async function buildDocumentFromURL(url: string) {
   const document = Document.findByURL(url);
   if (!document) {
     return null;
