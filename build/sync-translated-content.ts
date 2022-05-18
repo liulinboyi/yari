@@ -235,7 +235,7 @@ export function syncTranslatedContentForAllLocales() {
     if (locale == "en-us") {
       continue;
     }
-    const { stats: { movedDocs = 0 } = {} } = syncAllTranslatedContent(locale);
+    const { movedDocs = 0 } = syncAllTranslatedContent(locale);
     moved += movedDocs;
   }
   return moved;
