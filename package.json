@@ -4,6 +4,7 @@
   "repository": "https://github.com/mdn/yari",
   "license": "MPL-2.0",
   "author": "MDN Web Docs",
+  "type": "module",
   "bin": {
     "yari-build": "build/cli.js",
     "yari-filecheck": "filecheck/cli.js",
@@ -39,7 +40,7 @@
     "test:content": "jest content",
     "test:developing": "cross-env CONTENT_ROOT=mdn/content/files TESTING_DEVELOPING=true playwright test developing",
     "test:headless": "playwright test headless",
-    "test:kumascript": "jest kumascript --env=node",
+    "test:kumascript": "cross-env NODE_OPTIONS=--experimental-vm-modules jest kumascript --env=node",
     "test:prepare": "yarn build:prepare && yarn build && yarn start:static-server",
     "test:testing": "jest --rootDir testing",
     "tool": "ts-node tool/cli.ts",
@@ -48,7 +49,8 @@
   "jest": {
     "globals": {
       "ts-test": {
-        "babelConfig": true
+        "babelConfig": true,
+        "useESM": true
       }
     },
     "testPathIgnorePatterns": [
@@ -56,7 +58,7 @@
       "developing.spec.js"
     ],
     "transform": {
-      "^.+\\.[t|j]sx?$": "babel-jest"
+      "^.+\\.ts?$": "ts-jest"
     }
   },
   "resolutions": {
