@@ -6,7 +6,7 @@ const fm = require("front-matter");
 
 const { VALID_LOCALES } = require("../libs/constants");
 const { CONTENT_ROOT, CONTENT_TRANSLATED_ROOT } = require("../libs/env");
-const { SearchIndex } = require("../build");
+import { SearchIndex } from "../build";
 
 function populateSearchIndex(searchIndex, localeLC) {
   const root = path.join(
