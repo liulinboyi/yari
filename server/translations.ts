@@ -1,3 +1,5 @@
+import { LanguageItem } from "../client/src/document/types";
+
 const fs = require("fs");
 const path = require("path");
 
@@ -11,7 +13,11 @@ const { VALID_LOCALES } = require("../libs/constants");
 const { CONTENT_ROOT, CONTENT_TRANSLATED_ROOT } = require("../libs/env");
 const { getLastCommitURL } = require("../build");
 const { ACTIVE_LOCALES, DEFAULT_LOCALE } = require("../libs/constants");
-const LANGUAGES_RAW = require("../libs/languages");
+
+const LANGUAGES_RAW = require("../libs/languages") as Record<
+  string,
+  LanguageItem
+>;
 
 // Module-level cache
 const allPopularityValues = [];
